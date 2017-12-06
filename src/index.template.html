@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>同程旅游</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+
+<body>
+    <!-- APP -->
+    <script type="text/javascript">
+        var _tcq = _tcq || [];
+        var _timediff = -1;
+        if (typeof _tcopentime != "undefined") {
+            _timediff = new Date().getTime() - _tcopentime;
+        }
+        _tcq.push(['_serialid', '0']);//如果是下单页面，需要传入订单号，多个订单号用下划分割 "_"
+        _tcq.push(['_vrcode', '10006-2002-0']); //产品号见下面解释，最后一位默认为0，写成其他的统计不到，此条代码最重要
+        _tcq.push(['_refId', 0]);//Refid需要传入来源refid，不同平台的读取方法不同，项目自己读取Refid
+        _tcq.push(['_userId', 0]);//传入访问者中登录的会员ID，未登录的为0，不同平台的读取方法不同，项目自己读取会员ID
+        _tcq.push(['_openTime', _timediff]);
+        _tcq.push(['_trackPageview', '']);//虚拟url，项目自己定义,如:/Touch站/首页，
+        _tcq.push(['_qdid', 0]);//市场渠道id（用于区分市场中心各个部门）----有疑问可联系@支夏萍
+        _tcq.push(['_flag', false]); //关闭自动数据收集
+        /**
+         * 埋点触发页面数据收集
+         * @param  String pg    当前页面名称
+         * @param  String orgpg 来源页面名称
+         * @return {[type]}       [description]
+         */
+        function pageTrack(pg, orgpg) {
+            if (typeof _tcTraObj == "undefined") {
+                var t = setTimeout("_tcTraObj._tcTrackPage('" + pg + "','" + orgpg + "');", 200)
+            } else {
+                _tcTraObj._tcTrackPage(pg, orgpg);
+            }
+        }
+        /**
+         * 事件跟踪方法
+         * @param  String category  类别
+         * @param  String action    操作
+         * @param  String opt_label 标签
+         * @param  String opt_value 值
+         * @return {[type]}           [description]
+         */
+        function eventTrack(category, action, opt_label, opt_value){
+            _tcTraObj._tcTrackEvent(category, action, opt_label, opt_value);
+        }
+    </script>
+    <script type='text/javascript' src="//vstlog.17usoft.com/vst.ashx" charset="utf-8"></script>
+</body>
+
+</html>
